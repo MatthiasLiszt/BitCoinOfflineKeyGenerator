@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BitDiceApp()
+comment1.params=
+comment1.target=void\ start()
+comment1.text=\n\ Called\ by\ the\ browser\ or\ applet\ viewer\ to\ inform\ this\ JApplet\ that\ it\ \n\ should\ start\ its\ execution.\ It\ is\ called\ after\ the\ init\ method\ and\ \n\ each\ time\ the\ JApplet\ is\ revisited\ in\ a\ Web\ page.\ \n
+comment2.params=
+comment2.target=void\ stop()
+comment2.text=\ \n\ Called\ by\ the\ browser\ or\ applet\ viewer\ to\ inform\ this\ JApplet\ that\n\ it\ should\ stop\ its\ execution.\ It\ is\ called\ when\ the\ Web\ page\ that\n\ contains\ this\ JApplet\ has\ been\ replaced\ by\ another\ page,\ and\ also\n\ just\ before\ the\ JApplet\ is\ to\ be\ destroyed.\ \n
+comment3.params=g
+comment3.target=void\ paint(java.awt.Graphics)
+comment3.text=\n\ Paint\ method\ for\ applet.\n\ \n\ @param\ \ g\ \ \ the\ Graphics\ object\ for\ this\ applet\n
+comment4.params=
+comment4.target=void\ destroy()
+comment4.text=\n\ Called\ by\ the\ browser\ or\ applet\ viewer\ to\ inform\ this\ JApplet\ that\ it\n\ is\ being\ reclaimed\ and\ that\ it\ should\ destroy\ any\ resources\ that\ it\n\ has\ allocated.\ The\ stop\ method\ will\ always\ be\ called\ before\ destroy.\ \n
+comment5.params=
+comment5.target=java.lang.String\ getAppletInfo()
+comment5.text=\n\ Returns\ information\ about\ this\ applet.\ \n\ An\ applet\ should\ override\ this\ method\ to\ return\ a\ String\ containing\ \n\ information\ about\ the\ author,\ version,\ and\ copyright\ of\ the\ JApplet.\n\n\ @return\ a\ String\ representation\ of\ information\ about\ this\ JApplet\n
+comment6.params=s
+comment6.target=void\ main(java.lang.String[])
+comment7.params=e
+comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment8.params=m
+comment8.target=java.lang.String\ ThrowBin(java.lang.String)
+comment9.params=m
+comment9.target=java.lang.String\ B2Hex(java.lang.String)
+numComments=10
