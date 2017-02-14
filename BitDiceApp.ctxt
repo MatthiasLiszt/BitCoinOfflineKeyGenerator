@@ -22,6 +22,4 @@ comment7.params=e
 comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment8.params=m
 comment8.target=java.lang.String\ ThrowBin(java.lang.String)
-comment9.params=m
-comment9.target=java.lang.String\ B2Hex(java.lang.String)
-numComments=10
+numComments=9
