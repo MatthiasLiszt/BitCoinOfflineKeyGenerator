@@ -8,7 +8,7 @@ import javax.swing.*;
  * Class BitDiceApp - write a description of the class here
  * 
  * @author Matthias Liszt 
- * @version 0.0joseph 
+ * @version 0.02 
  */
 
 /*
@@ -24,7 +24,7 @@ class BitDiceApp implements ActionListener
 {
     JFrame f;
     JTextField t,t2,t3;
-    JButton b1,b2,b3,b4,b5,b06;
+    JButton b1,b2,b3,b4,b5,b06,pKey,help;
     
     static int n=0; 
     String seed="";
@@ -45,6 +45,9 @@ class BitDiceApp implements ActionListener
       b5=new JButton("5");
       b06=new JButton("6");
       
+      pKey=new JButton("WIF Private Key");
+      help=new JButton("Help");
+      
       t.setBounds(30,30,450,30);
       t2.setBounds(30,60,450,30);
       t3.setBounds(30,300,450,30);
@@ -55,6 +58,9 @@ class BitDiceApp implements ActionListener
       b5.setBounds(110,170,50,40);
       b06.setBounds(180,170,50,40);
       
+      pKey.setBounds(40,100,280,40);
+      help.setBounds(240,170,90,40);
+      
       f.add(b1);
       f.add(b2);
       f.add(b3);
@@ -64,6 +70,9 @@ class BitDiceApp implements ActionListener
       f.add(t);
       f.add(t2);
       f.add(t3);
+      
+      f.add(pKey);
+      f.add(help);
       
       f.setLayout(null);
       f.setVisible(true);
@@ -77,6 +86,9 @@ class BitDiceApp implements ActionListener
       b4.addActionListener(this);
       b5.addActionListener(this);
       b06.addActionListener(this);
+      
+      pKey.addActionListener(this);
+      help.addActionListener(this);
       
     }
      
@@ -149,7 +161,7 @@ class BitDiceApp implements ActionListener
     }
     public void actionPerformed(ActionEvent e)
     { 
-      String s;  
+      String s,sp;  
            
       if(e.getSource()==b1){t.setText(t.getText().concat("1"));}
       if(e.getSource()==b2){t.setText(t.getText().concat("2"));}
@@ -160,6 +172,23 @@ class BitDiceApp implements ActionListener
       
       s=t.getText();
       
+      if((e.getSource()==pKey)&&(n==24))
+       {BitCoinPKey p;
+        p=new BitCoinPKey(seed);   
+        //t3.setText(p.B2Hex(seed));   
+        sp=p.pKeyGen(seed);
+        t.setText(sp);
+        t3.setText("copy or write down your public key now");
+        System.out.print("Hex="+p.B2Hex(seed));
+       }
+      else 
+       {if(e.getSource()==pKey)
+         {t2.setText("insufficient throws to generate key - throw again !");}
+       }
+        
+      if(e.getSource()==help)
+       {t2.setText("throw four dices and enter result to generate the key");}    
+      // four dices make a throw ... 4 dices four numbers
       if(s.length()==4)
        {
         t.setText("");
@@ -196,7 +225,7 @@ class BitDiceApp implements ActionListener
        if((ii/4)==1){rr=rr+"1";}else{rr=rr+"0";}   
        if((ii/2)==1){rr=rr+"1";}else{rr=rr+"0";}   
        if((ii/1)==1){rr=rr+"1";}else{rr=rr+"0";}   
-       n=n+1;
+       if(n<24){n=n+1;}
        seed=seed+rr;
        if(n<24)
         {t3.setText(Integer.toString(n));}
@@ -210,10 +239,10 @@ class BitDiceApp implements ActionListener
          seed=rx+seed; 
          System.out.print(seed);
                   
-         t3.setText(seed); 
+         //t3.setText(seed); 
          
-         t3.setText(B2Hex(seed));
-         System.out.print("hex="+B2Hex(seed));
+                  
+         
         }
       }
      
@@ -221,24 +250,9 @@ class BitDiceApp implements ActionListener
     }    
     
     
-    public String B2Hex(String m)
-    {int ii,hv;
-     String rx="",HexMap="0123456789abcdef";
-     char c;
-     
-     for(ii=0;ii<256;ii=ii+4)
-      {hv=0;
-       if(m.charAt(ii+0)=='1'){hv=hv+8;}
-       if(m.charAt(ii+1)=='1'){hv=hv+4;}
-       if(m.charAt(ii+2)=='1'){hv=hv+2;}
-       if(m.charAt(ii+3)=='1'){hv=hv+1;}
-       c=HexMap.charAt(hv);   
-       rx=rx+c;
-          
-      }    
-     return rx; 
-    } 
     
+    
+   
  }
 
 
